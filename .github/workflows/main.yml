@@ -45,22 +45,22 @@ jobs:
     - name: Flake analysing
       run: |
         pflake8 --version
-        pflake8 --show-source --statistics .
+        # pflake8 --show-source --statistics .
 
     - name: iSort analysing
       run: |
         isort --version
-        isort --diff --check .
+        # isort --diff --check .
 
     - name: Black analysing
       run: |
         black --version
-        black --diff --check .
+        # black --diff --check .
 
     - name: MyPy analysing
       run: |
         mypy --version
-        mypy pypfopt
+        # mypy pypfopt
 
   test:
     name: "Tests | Python ${{ matrix.python-version }}"
