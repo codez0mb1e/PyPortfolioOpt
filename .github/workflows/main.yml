@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MPLBACKEND: Agg  # https://github.com/orgs/community/discussions/26434
+      MPLBACKEND: Agg # https://github.com/orgs/community/discussions/26434
 
     strategy:
       matrix:
@@ -96,5 +96,11 @@ jobs:
     - name: Run Unit tests
       run: |
         pytest --version
-        pytest --doctest-modules --junitxml=junit/unit-tests-results-${{ matrix.python-version }}.xml \
+        pytest --doctest-modules --junitxml=tests-results-${{ matrix.python-version }}.xml \
           --cov=. --cov-report=xml tests
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+        files: tests-results-${{ matrix.python-version }}.xml
+        fail_ci_if_error: true
