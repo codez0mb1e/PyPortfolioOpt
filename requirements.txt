@@ -1,4 +1,6 @@
 cvxpy>=1.1.19
+scs>=3.2.7
+ecos>=2.0.14
 matplotlib>=3.2.0
 numpy>=2.1.0
 pandas>=0.19
