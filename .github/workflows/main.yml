@@ -12,15 +12,15 @@ permissions:
 jobs:
   linting:
 
-    name: "Lint | Python ${{ matrix.python-version }}"
-
-    runs-on: ubuntu-latest
+    name: "Linting | Python ${{ matrix.python-version }} on ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
 
     env:
       MPLBACKEND: Agg # https://github.com/orgs/community/discussions/26434
 
     strategy:
       matrix:
+        os: [ "ubuntu-latest" ]
         python-version: [ "3.12", "3.13" ]
       fail-fast: false
 
@@ -43,35 +43,28 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Flake analysing
-      run: |
-        pflake8 --version
-        # pflake8 --show-source --statistics .
+      run: pflake8 --show-source --statistics .
 
     - name: iSort analysing
-      run: |
-        isort --version
-        # isort --diff --check .
+      run: isort --diff --check .
 
     - name: Black analysing
-      run: |
-        black --version
-        # black --diff --check .
+      run: black --diff --check .
 
     - name: MyPy analysing
-      run: |
-        mypy --version
-        # mypy pypfopt
+      run: mypy pypfopt
 
   test:
-    name: "Tests | Python ${{ matrix.python-version }}"
+
+    name: "Linting | Python ${{ matrix.python-version }} on ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
 
     needs:
       - linting
 
-    runs-on: ubuntu-latest
-
     strategy:
       matrix:
+        os: [ "ubuntu-latest" ]
         python-version: [ "3.12", "3.13" ]
       fail-fast: false
 
