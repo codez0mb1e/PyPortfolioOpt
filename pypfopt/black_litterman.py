@@ -6,6 +6,7 @@ views. In addition, two utility functions are defined, which calculate:
 - market-implied prior estimate of returns
 - market-implied risk-aversion parameter
 """
+
 import sys
 import warnings
 
@@ -84,7 +85,6 @@ def market_implied_risk_aversion(market_prices, frequency=252, risk_free_rate=0.
 
 
 class BlackLittermanModel(base_optimizer.BaseOptimizer):
-
     """
     A BlackLittermanModel object (inheriting from BaseOptimizer) contains requires
     a specific input format, specifying the prior, the views, the uncertainty in views,
@@ -396,7 +396,6 @@ class BlackLittermanModel(base_optimizer.BaseOptimizer):
         :return: posterior returns vector
         :rtype: pd.Series
         """
-
         if self._tau_sigma_P is None:
             self._tau_sigma_P = self.tau * self.cov_matrix @ self.P.T
 
@@ -454,9 +453,7 @@ class BlackLittermanModel(base_optimizer.BaseOptimizer):
         return self._make_output_weights()
 
     def optimize(self, risk_aversion=None):
-        """
-        Alias for bl_weights for consistency with other methods.
-        """
+        """Alias for bl_weights for consistency with other methods."""
         return self.bl_weights(risk_aversion)
 
     def portfolio_performance(self, verbose=False, risk_free_rate=0.02):

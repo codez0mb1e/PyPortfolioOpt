@@ -3,7 +3,6 @@ The ``efficient_semivariance`` submodule houses the EfficientSemivariance class,
 generates portfolios along the mean-semivariance frontier.
 """
 
-
 import cvxpy as cp
 import numpy as np
 
@@ -184,9 +183,7 @@ class EfficientSemivariance(EfficientFrontier):
         update_existing_parameter = self.is_parameter_defined("target_semivariance")
         if update_existing_parameter:
             self._validate_market_neutral(market_neutral)
-            self.update_parameter_value(
-                "target_semivariance", target_semideviation**2
-            )
+            self.update_parameter_value("target_semivariance", target_semideviation**2)
         else:
             self._objective = objective_functions.portfolio_return(
                 self._w, self.expected_returns

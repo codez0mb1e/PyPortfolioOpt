@@ -11,7 +11,6 @@ from . import base_optimizer
 
 
 class CLA(base_optimizer.BaseOptimizer):
-
     """
     Instance variables:
 
@@ -198,13 +197,13 @@ class CLA(base_optimizer.BaseOptimizer):
         # Reduce a matrix to the provided list of rows and columns
         if len(listX) == 0 or len(listY) == 0:
             return
-        matrix_ = matrix[:, listY[0] : listY[0] + 1]
+        matrix_ = matrix[:, listY[0]:listY[0] + 1]
         for i in listY[1:]:
-            a = matrix[:, i : i + 1]
+            a = matrix[:, i:i + 1]
             matrix_ = np.append(matrix_, a, 1)
-        matrix__ = matrix_[listX[0] : listX[0] + 1, :]
+        matrix__ = matrix_[listX[0]:listX[0] + 1, :]
         for i in listX[1:]:
-            a = matrix_[i : i + 1, :]
+            a = matrix_[i:i + 1, :]
             matrix__ = np.append(matrix__, a, 0)
         return matrix__
 

@@ -8,6 +8,7 @@ Currently implemented:
   - ``plot_efficient_frontier`` – plot the efficient frontier from an EfficientFrontier or CLA object
   - ``plot_weights`` - bar chart of weights
 """
+
 import warnings
 
 import matplotlib.pyplot as plt
@@ -119,9 +120,7 @@ def plot_dendrogram(hrp, ax=None, show_tickers=True, **kwargs):
 
 
 def _plot_cla(cla, points, ax, show_assets, show_tickers):
-    """
-    Helper function to plot the efficient frontier from a CLA object
-    """
+    """Helper function to plot the efficient frontier from a CLA object"""
     if cla.weights is None:
         cla.max_sharpe()
     optimal_ret, optimal_risk, _ = cla.portfolio_performance()
@@ -165,9 +164,7 @@ def _ef_default_returns_range(ef, points):
 
 
 def _plot_ef(ef, ef_param, ef_param_range, ax, show_assets, show_tickers):
-    """
-    Helper function to plot the efficient frontier from an EfficientFrontier object
-    """
+    """Helper function to plot the efficient frontier from an EfficientFrontier object"""
     mus, sigmas = [], []
 
     # Create a portfolio for each value of ef_param_range

@@ -148,7 +148,6 @@ class EfficientCDaR(EfficientFrontier):
         :return: asset weights for the optimal portfolio
         :rtype: OrderedDict
         """
-
         update_existing_parameter = self.is_parameter_defined("target_return")
         if update_existing_parameter:
             self._validate_market_neutral(market_neutral)
@@ -176,7 +175,6 @@ class EfficientCDaR(EfficientFrontier):
         :return: asset weights for the efficient risk portfolio
         :rtype: OrderedDict
         """
-
         update_existing_parameter = self.is_parameter_defined("target_cdar")
         if update_existing_parameter:
             self._validate_market_neutral(market_neutral)
