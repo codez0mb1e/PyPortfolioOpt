@@ -62,6 +62,9 @@ class BaseOptimizer:
         if weights is None:
             weights = self.weights
 
+        # Convert numpy float64 to plain Python float
+        weights = [float(w) for w in weights]
+
         return collections.OrderedDict(zip(self.tickers, weights))
 
     def set_weights(self, input_weights):
@@ -510,7 +513,7 @@ class BaseConvexOptimizer(BaseOptimizer):
 
 
 def portfolio_performance(
-    weights, expected_returns, cov_matrix, verbose=False, risk_free_rate=0.02
+    weights, expected_returns, cov_matrix, verbose=False, risk_free_rate=0.0
 ):
     """
     After optimising, calculate (and optionally print) the performance of the optimal
@@ -525,7 +528,7 @@ def portfolio_performance(
     :type weights: list, np.array or dict, optional
     :param verbose: whether performance should be printed, defaults to False
     :type verbose: bool, optional
-    :param risk_free_rate: risk-free rate of borrowing/lending, defaults to 0.02
+    :param risk_free_rate: risk-free rate of borrowing/lending, defaults to 0.0
     :type risk_free_rate: float, optional
     :raises ValueError: if weights have not been calculated yet
     :return: expected return, volatility, Sharpe ratio.
