@@ -204,7 +204,7 @@ def capm_return(
     frequency=252,
     log_returns=False,
 ):
-    """
+    r"""
     Compute a return estimate using the Capital Asset Pricing Model. Under the CAPM,
     asset returns are equal to market returns plus a :math:`\beta` term encoding
     the relative risk of the asset.

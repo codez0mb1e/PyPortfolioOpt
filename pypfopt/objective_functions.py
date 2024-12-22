@@ -184,7 +184,7 @@ def transaction_cost(w, w_prev, k=0.001):
 
 
 def ex_ante_tracking_error(w, cov_matrix, benchmark_weights):
-    """
+    r"""
     Calculate the (square of) the ex-ante Tracking Error, i.e
     :math:`(w - w_b)^T \\Sigma (w-w_b)`.
 

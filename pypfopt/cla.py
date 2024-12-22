@@ -11,7 +11,6 @@ from . import base_optimizer
 
 
 class CLA(base_optimizer.BaseOptimizer):
-
     """
     Instance variables:
 

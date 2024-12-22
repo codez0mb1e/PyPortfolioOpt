@@ -2,6 +2,7 @@
 The ``efficient_frontier`` submodule houses the EfficientFrontier class, which generates
 classical mean-variance optimal portfolios for a variety of objectives and constraints
 """
+
 import warnings
 
 import cvxpy as cp
@@ -12,7 +13,6 @@ from .. import base_optimizer, exceptions, objective_functions
 
 
 class EfficientFrontier(base_optimizer.BaseConvexOptimizer):
-
     """
     An EfficientFrontier object (inheriting from BaseConvexOptimizer) contains multiple
     optimization methods that can be called (corresponding to different objective
@@ -138,9 +138,7 @@ class EfficientFrontier(base_optimizer.BaseConvexOptimizer):
             raise TypeError("cov_matrix is not a dataframe or array")
 
     def _validate_returns(self, returns):
-        """
-        Helper method to validate daily returns (needed for some efficient frontiers)
-        """
+        """Helper method to validate daily returns (needed for some efficient frontiers)"""
         if not isinstance(returns, (pd.DataFrame, np.ndarray)):
             raise TypeError("returns should be a pd.Dataframe or np.ndarray")
 

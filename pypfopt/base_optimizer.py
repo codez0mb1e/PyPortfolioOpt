@@ -6,6 +6,7 @@ optimization.
 Additionally, we define a general utility function ``portfolio_performance`` to
 evaluate return and risk for a given set of portfolio weights.
 """
+
 import collections
 import copy
 import json
@@ -22,7 +23,6 @@ from . import exceptions, objective_functions
 
 
 class BaseOptimizer:
-
     """
     Instance variables:
 
@@ -120,7 +120,6 @@ class BaseOptimizer:
 
 
 class BaseConvexOptimizer(BaseOptimizer):
-
     """
     The BaseConvexOptimizer contains many private variables for use by
     ``cvxpy``. For example, the immutable optimization variable for weights
@@ -585,10 +584,10 @@ def _get_all_args(expression: cp.Expression) -> List[cp.Expression]:
     :return: a list of cvxpy arguments
     :rtype: List[cp.Expression]
     """
-    if expression.args == []:
+    if expression.args == []:  # type: ignore
         return [expression]
     else:
-        return list(_flatten([_get_all_args(arg) for arg in expression.args]))
+        return list(_flatten([_get_all_args(arg) for arg in expression.args]))  # type: ignore
 
 
 def _flatten(alist: Iterable) -> Iterable:

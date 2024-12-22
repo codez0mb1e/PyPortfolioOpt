@@ -10,7 +10,7 @@ with open("README.md", "r") as f:
 if __name__ == "__main__":
     setuptools.setup(
         name="pyportfolioopt",
-        version="1.5.5",
+        version="1.6.0",
         description="Financial portfolio optimization in python",
         long_description=desc,
         long_description_content_type="text/markdown",
@@ -27,6 +27,7 @@ if __name__ == "__main__":
             "License :: OSI Approved :: MIT License",
             "Natural Language :: English",
             "Operating System :: OS Independent",
+            "Programming Language :: Python :: 3.13",
             "Programming Language :: Python :: 3.12",
             "Programming Language :: Python :: 3.11",
             "Programming Language :: Python :: 3.10",
